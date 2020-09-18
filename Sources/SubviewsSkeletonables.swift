@@ -14,6 +14,7 @@ extension UIView {
 
 extension UITableView {
     override var subviewsToSkeleton: [UIView] {
+        guard dataSource?.numberOfSections?(in: self) ?? 0 > 0 else { return [] }
         return visibleCells + visibleSectionHeaders + visibleSectionFooters
     }
 }
